@@ -1,0 +1,2 @@
+package com.taller.user;
+public enum Role { ADMINISTRADOR, CLIENTE, MECANICO, SECRETARIA, GERENTE }

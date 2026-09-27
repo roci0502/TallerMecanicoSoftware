@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    url: ${DB_URL:jdbc:mysql://localhost:3306/taller_mecanico?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Mexico_City}
+    username: ${DB_USER:roci}
+    password: ${DB_PASSWORD:123456}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+  jackson:
+    default-property-inclusion: non_null
+server:
+  port: ${PORT:8081}
+app:
+  jwt-secret: ${JWT_SECRET:cambia-esta-clave-por-una-de-al-menos-32-caracteres-en-produccion}
+  frontend-url: ${FRONTEND_URL:http://localhost:5173}
