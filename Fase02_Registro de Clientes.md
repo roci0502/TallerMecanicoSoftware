@@ -4,8 +4,6 @@
 
 Esta documentación refleja el código actual del proyecto de Gestión de Órdenes de Reparación para Taller Mecánico. Describe el módulo de clientes, sus correcciones posteriores y la integración que permanece con la fase de autenticación. No sustituye la documentación de futuras órdenes de reparación.
 
-Diagrama actualizado: [Diagrama_componentes_fase02.md](Diagrama_componentes_fase02.md).
-
 ## Alcance y resultado actual
 
 | Aspecto | Estado actual |
