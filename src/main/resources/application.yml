@@ -9,6 +9,10 @@ spring:
     open-in-view: false
   jackson:
     default-property-inclusion: non_null
+  servlet:
+    multipart:
+      max-file-size: 7MB
+      max-request-size: 7MB
 server:
   port: ${PORT:8081}
 app:

@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Diagrama de componentes · Fase 02</title>
+  <style>
+    :root{--navy:#062d5c;--blue:#087ce5;--cyan:#dff3ff;--green:#137a55;--mint:#dff8ea;--gold:#b77100;--yellow:#fff2cb;--purple:#62348f;--lilac:#f0e2ff;--slate:#34495e;--gray:#e8eef4;--red:#ad2445;--pink:#ffe3ea}
+    *{box-sizing:border-box}body{margin:0;background:#eef6fc;color:#102b4e;font-family:Arial,sans-serif}header{background:linear-gradient(110deg,var(--navy),var(--blue));padding:28px max(24px,7vw);color:#fff}header p{margin:0 0 7px;font-size:11px;font-weight:800;letter-spacing:1.7px;color:#91d5ff}h1{margin:0;font-size:30px}header span{display:block;margin-top:9px;font-size:14px;color:#d9efff}
+    .wrap{max-width:1480px;margin:24px auto;padding:0 20px}.legend{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}.legend span{font-size:12px;font-weight:700;background:#fff;border:1px solid #d5e2ef;border-radius:20px;padding:7px 10px}.legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px}
+    .diagram{background:#fff;border:1px solid #d5e2ef;border-radius:16px;padding:18px;box-shadow:0 10px 30px #193c5b12;overflow:auto}.diagram svg{display:block;width:100%;min-width:1260px;height:auto}.lane{fill:#f8fbfe;stroke:#c9dbea;stroke-width:1.5;stroke-dasharray:6 5}.lane-title{font-size:15px;font-weight:800;fill:#285274;letter-spacing:.4px}.node{stroke-width:2}.node-title{font-size:14px;font-weight:800}.node-text{font-size:11px}.role{fill:#073b78;stroke:#55c0ff}.role-t{fill:#fff}.vue{fill:#dff3ff;stroke:#1689e8}.vue-t{fill:#06315d}.facade{fill:#dff8ea;stroke:#35a873}.facade-t{fill:#075336}.rest{fill:#fff2cb;stroke:#e1a21c}.rest-t{fill:#704400}.spring{fill:#f0e2ff;stroke:#9966cc}.spring-t{fill:#4e197c}.data{fill:#e8eef4;stroke:#708399}.data-t{fill:#26364b}.error{fill:#ffe3ea;stroke:#d95071}.error-t{fill:#8c1533}.arrow{fill:none;stroke:#6f8ba5;stroke-width:2}.arrow-green{fill:none;stroke:#168b5c;stroke-width:2.5}.arrow-red{fill:none;stroke:#d95071;stroke-width:2;stroke-dasharray:7 5}.flow-label{font-size:10px;font-weight:700;fill:#496a87}.note{margin:15px 2px 0;color:#526d8a;font-size:12px;line-height:1.5}
+    details{margin-top:18px;background:#062d5c;color:#d9efff;border-radius:10px;padding:12px 15px;font-size:12px}summary{cursor:pointer;font-weight:800}pre{white-space:pre-wrap;color:#d9efff}
+    .node-title,.node-text{font-family:Arial,Helvetica,sans-serif;text-rendering:geometricPrecision;paint-order:stroke fill;stroke-width:.28px;stroke-linejoin:round}.node-text{font-weight:700;letter-spacing:.08px}.role-t{stroke:#073b78}.vue-t{stroke:#dff3ff}.facade-t{stroke:#dff8ea}.rest-t{stroke:#fff2cb}.spring-t{stroke:#f0e2ff}.data-t{stroke:#e8eef4}.error-t{stroke:#ffe3ea}
+  </style>
+</head>
+<body>
+  <header><p>TALLER MECÁNICO · FASE 02</p><h1>Diagrama de componentes — Registro y consulta de clientes</h1><span>Usuarios y roles · Vue · Facade · Repository · REST · Spring Boot · MySQL</span></header>
+  <main class="wrap">
+    <section class="legend" aria-label="Leyenda">
+      <span><i style="background:#073b78"></i>Usuarios</span><span><i style="background:#1689e8"></i>Vue / Repository</span><span><i style="background:#35a873"></i>Facade</span><span><i style="background:#e1a21c"></i>REST</span><span><i style="background:#9966cc"></i>Spring Boot</span><span><i style="background:#708399"></i>MySQL</span><span><i style="background:#d95071"></i>Errores</span>
+    </section>
+    <section class="diagram" aria-label="Diagrama de componentes">
+      <svg viewBox="0 0 1400 930" role="img" aria-label="Flujo de componentes del módulo de clientes">
+        <defs>
+          <marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8Z" fill="#6f8ba5"/></marker>
+          <marker id="greenArrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8Z" fill="#168b5c"/></marker>
+          <marker id="redArrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8Z" fill="#d95071"/></marker>
+        </defs>
+
+        <rect class="lane" x="15" y="45" width="210" height="820" rx="14"/><text class="lane-title" x="32" y="74">USUARIOS Y ROLES</text>
+        <rect class="lane" x="245" y="45" width="270" height="820" rx="14"/><text class="lane-title" x="262" y="74">VISTA VUE</text>
+        <rect class="lane" x="535" y="45" width="250" height="820" rx="14"/><text class="lane-title" x="552" y="74">API REST</text>
+        <rect class="lane" x="805" y="45" width="340" height="820" rx="14"/><text class="lane-title" x="822" y="74">SPRING BOOT</text>
+        <rect class="lane" x="1165" y="45" width="220" height="820" rx="14"/><text class="lane-title" x="1182" y="74">MYSQL</text>
+
+        <g class="node role"><rect x="38" y="130" width="164" height="62" rx="10"/><text class="node-title role-t" x="55" y="156">Administrador</text><text class="node-text role-t" x="55" y="176">Alta y consulta</text></g>
+        <g class="node role"><rect x="38" y="215" width="164" height="62" rx="10"/><text class="node-title role-t" x="55" y="241">Recepcionista</text><text class="node-text role-t" x="55" y="261">Alta y consulta</text></g>
+        <g class="node role"><rect x="38" y="300" width="164" height="62" rx="10"/><text class="node-title role-t" x="55" y="326">Secretaria</text><text class="node-text role-t" x="55" y="346">Solo alta</text></g>
+        <g class="node role"><rect x="38" y="385" width="164" height="62" rx="10"/><text class="node-title role-t" x="55" y="411">Cliente</text><text class="node-text role-t" x="55" y="431">Saludo y salir</text></g>
+
+        <g class="node vue"><rect x="270" y="130" width="220" height="92" rx="10"/><text class="node-title vue-t" x="287" y="157">main.js</text><text class="node-text vue-t" x="287" y="177">Formulario · tabla · toast</text><text class="node-text vue-t" x="287" y="195">Vista restringida CLIENTE</text></g>
+        <g class="node facade"><rect x="270" y="285" width="220" height="72" rx="10"/><text class="node-title facade-t" x="287" y="312">ClientFacade.js</text><text class="node-text facade-t" x="287" y="333">Valida la fotografía</text></g>
+        <g class="node vue"><rect x="270" y="415" width="220" height="88" rx="10"/><text class="node-title vue-t" x="287" y="442">ClientRepository.js</text><text class="node-text vue-t" x="287" y="462">FormData · Bearer · JSON</text><text class="node-text vue-t" x="287" y="480">Blob y URL de imagen</text></g>
+        <g class="node facade"><rect x="270" y="640" width="220" height="75" rx="10"/><text class="node-title facade-t" x="287" y="667">AuthFacade / Repository</text><text class="node-text facade-t" x="287" y="688">Login y sesión local</text></g>
+
+        <g class="node rest"><rect x="560" y="285" width="200" height="86" rx="10"/><text class="node-title rest-t" x="577" y="312">ClientController</text><text class="node-text rest-t" x="577" y="333">POST /clientes</text><text class="node-text rest-t" x="577" y="350">GET lista / fotografía</text></g>
+        <g class="node rest"><rect x="560" y="640" width="200" height="74" rx="10"/><text class="node-title rest-t" x="577" y="667">AuthController</text><text class="node-text rest-t" x="577" y="688">Login, registro, recuperación</text></g>
+
+        <g class="node facade"><rect x="830" y="285" width="290" height="80" rx="10"/><text class="node-title facade-t" x="847" y="312">ClientFacade.java</text><text class="node-text facade-t" x="847" y="333">Edad · imagen · duplicados · respuesta</text><text class="node-text facade-t" x="847" y="350">Alta, lista y fotografía</text></g>
+        <g class="node spring"><rect x="830" y="430" width="290" height="72" rx="10"/><text class="node-title spring-t" x="847" y="457">ClientRepository JPA</text><text class="node-text spring-t" x="847" y="478">save · findAll · findById · duplicados</text></g>
+        <g class="node spring"><rect x="830" y="565" width="290" height="72" rx="10"/><text class="node-title spring-t" x="847" y="592">JwtService + JwtFilter</text><text class="node-text spring-t" x="847" y="613">Identidad, token y rol</text></g>
+        <g class="node facade"><rect x="830" y="685" width="290" height="72" rx="10"/><text class="node-title facade-t" x="847" y="712">AuthFacade.java</text><text class="node-text facade-t" x="847" y="733">BCrypt · recuperación · JWT</text></g>
+        <g class="node error"><rect x="830" y="790" width="290" height="52" rx="10"/><text class="node-title error-t" x="847" y="821">GlobalExceptionHandler → JSON message</text></g>
+
+        <g class="node data"><ellipse cx="1275" cy="350" rx="85" ry="27"/><rect x="1190" y="350" width="170" height="68"/><ellipse cx="1275" cy="418" rx="85" ry="27"/><text class="node-title data-t" x="1225" y="381">clientes</text><text class="node-text data-t" x="1204" y="401">fotografía LONGBLOB</text></g>
+        <g class="node data"><ellipse cx="1275" cy="690" rx="85" ry="27"/><rect x="1190" y="690" width="170" height="68"/><ellipse cx="1275" cy="758" rx="85" ry="27"/><text class="node-title data-t" x="1225" y="721">usuarios</text><text class="node-text data-t" x="1203" y="741">rol · BCrypt · token</text></g>
+
+        <path class="arrow" marker-end="url(#arrow)" d="M202 161 H270"/><path class="arrow" marker-end="url(#arrow)" d="M202 246 H270"/><path class="arrow" marker-end="url(#arrow)" d="M202 331 H270"/><path class="arrow" marker-end="url(#arrow)" d="M202 416 H270"/>
+        <text class="flow-label" x="215" y="116">sesión y permisos</text>
+        <path class="arrow-green" marker-end="url(#greenArrow)" d="M380 222 V285"/><text class="flow-label" x="390" y="258">datos + foto</text>
+        <path class="arrow-green" marker-end="url(#greenArrow)" d="M380 357 V415"/><text class="flow-label" x="390" y="391">validación OK</text>
+        <path class="arrow-green" marker-end="url(#greenArrow)" d="M490 459 H560"/><text class="flow-label" x="501" y="446">multipart + JWT</text>
+        <path class="arrow-green" marker-end="url(#greenArrow)" d="M760 328 H830"/><text class="flow-label" x="770" y="315">rol permitido</text>
+        <path class="arrow-green" marker-end="url(#greenArrow)" d="M975 365 V430"/><text class="flow-label" x="985" y="402">cliente válido</text>
+        <path class="arrow-green" marker-end="url(#greenArrow)" d="M1120 466 H1190"/><text class="flow-label" x="1130" y="452">JPA</text>
+        <path class="arrow" marker-end="url(#arrow)" d="M560 345 C535 345 535 459 490 459"/><text class="flow-label" x="505" y="530">respuesta REST / lista</text>
+        <path class="arrow" marker-end="url(#arrow)" d="M490 677 H560"/><path class="arrow" marker-end="url(#arrow)" d="M760 677 H830"/><path class="arrow" marker-end="url(#arrow)" d="M975 637 V685"/><path class="arrow" marker-end="url(#arrow)" d="M1120 721 H1190"/>
+        <text class="flow-label" x="502" y="665">credenciales</text><text class="flow-label" x="770" y="665">REST</text><text class="flow-label" x="1130" y="708">usuarios</text>
+        <path class="arrow-red" marker-end="url(#redArrow)" d="M975 365 V790"/><path class="arrow-red" marker-end="url(#redArrow)" d="M760 328 C790 328 790 816 830 816"/><path class="arrow-red" marker-end="url(#redArrow)" d="M830 816 C700 816 700 515 490 515"/>
+        <text class="flow-label" x="705" y="804" fill="#ad2445">error JSON → toast</text>
+      </svg>
+    </section>
+    <p class="note">Las flechas verdes representan el flujo correcto de alta; las grises representan consulta/autenticación; las punteadas rojas representan el retorno de errores normalizados. El árbol de componentes usado para organizar el diagrama fue generado con Archify.</p>
+    <details><summary>Árbol generado con Archify</summary><pre>{"label":"Sistema","nodes":[{"label":"Usuarios y roles","nodes":[{"label":"Administrador","nodes":[]},{"label":"Recepcionista","nodes":[]},{"label":"Secretaria","nodes":[]},{"label":"Cliente","nodes":[]}]},{"label":"Vista Vue","nodes":[{"label":"main.js","nodes":[]},{"label":"ClientFacade.js","nodes":[]},{"label":"ClientRepository.js","nodes":[]},{"label":"AuthFacade.js","nodes":[]}]},{"label":"Servicios RESTful","nodes":[{"label":"ClientController","nodes":[]},{"label":"AuthController","nodes":[]}]},{"label":"Spring Boot","nodes":[{"label":"ClientFacade.java","nodes":[]},{"label":"ClientRepository JPA","nodes":[]},{"label":"JwtService y JwtFilter","nodes":[]},{"label":"GlobalExceptionHandler","nodes":[]}]},{"label":"MySQL","nodes":[{"label":"clientes LONGBLOB","nodes":[]},{"label":"usuarios","nodes":[]}]}]}</pre></details>
+  </main>
+</body>
+</html>
